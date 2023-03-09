@@ -16,10 +16,10 @@ Environment = 'PGDATA=/data'
 Environment = 'PGDATABASE=citus'
 
 User = postgres
-ExecStart = /usr/bin/pg_autoctl create monitor --ssl-self-signed --auth trust --run
+ExecStart = /usr/local/bin/pg_autoctl create monitor --ssl-self-signed --auth trust --run
 Restart = always
 StartLimitBurst = 0
-ExecReload = /usr/bin/pg_autoctl reload
+ExecReload = /usr/local/bin/pg_autoctl reload
 
 [Install]
 WantedBy = multi-user.target
