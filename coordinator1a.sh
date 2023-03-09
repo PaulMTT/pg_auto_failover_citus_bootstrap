@@ -1,4 +1,5 @@
 #!/bin/bash
+
 sudo rm -rf /data
 sudo mkdir /data
 sudo chown -R postgres:postgres /var/run/postgresql
