@@ -13,7 +13,7 @@ Description = pg_auto_failover monitor
 [Service]
 WorkingDirectory = /
 Environment = 'PGDATA=/data'
-Environment = 'PGDATABASE=citus'
+Environment = 'PGDATABASE=postgres'
 
 User = postgres
 ExecStart = /usr/local/bin/pg_autoctl create monitor --ssl-self-signed --auth trust --run
