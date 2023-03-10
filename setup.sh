@@ -51,3 +51,5 @@ git clone https://github.com/citusdata/pg_auto_failover.git
 sudo make -s clean -C pg_auto_failover/ && sudo make -s -C pg_auto_failover/ install -j8
 
 sudo cp /usr/lib/postgresql/${PGVERSION}/bin/pg_autoctl /usr/local/bin
+
+sudo -u postgres sh -c 'cd /data && pg_conftool set listen_addresses "*"'

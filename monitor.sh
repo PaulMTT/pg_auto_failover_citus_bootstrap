@@ -11,7 +11,7 @@ cat <<EOF | sudo tee /etc/systemd/system/citus.service >/dev/null
 Description = pg_auto_failover monitor
 
 [Service]
-WorkingDirectory = /
+WorkingDirectory = /var/lib/postgresql
 Environment = 'PGDATA=/data'
 Environment = 'PGDATABASE=postgres'
 
@@ -23,6 +23,10 @@ ExecReload = /usr/local/bin/pg_autoctl reload
 
 [Install]
 WantedBy = multi-user.target
+EOF
+
+cat <<EOF | sudo tee -a /etc/postgresql/14/main/pg_hba.conf >/dev/null
+host  all all 10.110.33.0/22  trust
 EOF
 
 sudo systemctl start citus.service

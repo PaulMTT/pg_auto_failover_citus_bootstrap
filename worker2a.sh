@@ -11,7 +11,7 @@ cat <<EOF | sudo tee /etc/systemd/system/citus.service >/dev/null
 Description = pg_auto_failover worker
 
 [Service]
-WorkingDirectory = /
+WorkingDirectory = /var/lib/postgresql
 Environment = 'PGDATA=/data'
 Environment = 'PGDATABASE=citus'
 
