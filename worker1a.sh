@@ -16,7 +16,7 @@ Environment = 'PGDATA=/data'
 Environment = 'PGDATABASE=citus'
 
 User = postgres
-ExecStart = /usr/local/bin/pg_autoctl create worker --monitor "postgresql://autoctl_node@monitor/pg_auto_failover" --citus-cluster one --name worker1a --group 2 --ssl-self-signed --auth trust --run
+ExecStart = /usr/local/bin/pg_autoctl create worker --monitor "postgresql://autoctl_node@monitor/pg_auto_failover" --citus-cluster one --name worker1a --group 1 --ssl-self-signed --auth trust --run
 Restart = always
 StartLimitBurst = 0
 ExecReload = /usr/local/bin/pg_autoctl reload

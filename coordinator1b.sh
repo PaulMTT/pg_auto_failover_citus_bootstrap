@@ -16,7 +16,7 @@ Environment = 'PGDATA=/data'
 Environment = 'PGDATABASE=citus'
 
 User = postgres
-ExecStart = /usr/local/bin/pg_autoctl create coordinator --monitor "postgresql://autoctl_node@monitor/pg_auto_failover" --citus-cluster one --name coordinator1b --group 1 --ssl-self-signed --auth trust --run
+ExecStart = /usr/local/bin/pg_autoctl create coordinator --monitor "postgresql://autoctl_node@monitor/pg_auto_failover" --citus-cluster one --name coordinator1b --ssl-self-signed --auth trust --run
 Restart = always
 StartLimitBurst = 0
 ExecReload = /usr/local/bin/pg_autoctl reload
