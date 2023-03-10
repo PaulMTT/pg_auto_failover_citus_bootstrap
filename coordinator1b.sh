@@ -1,11 +1,5 @@
 #!/bin/bash
 
-sudo rm -rf /data
-sudo mkdir /data
-sudo chown -R postgres:postgres /var/run/postgresql
-sudo chown -R postgres:postgres /data
-sudo chmod -R 1777 /tmp
-
 cat <<EOF | sudo tee /etc/systemd/system/citus.service >/dev/null
 [Unit]
 Description = pg_auto_failover coordinator

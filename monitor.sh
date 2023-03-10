@@ -1,11 +1,5 @@
 #!/bin/bash
 
-sudo rm -rf /data
-sudo mkdir /data
-sudo chown -R postgres:postgres /var/run/postgresql
-sudo chown -R postgres:postgres /data
-sudo chmod -R 1777 /tmp
-
 cat <<EOF | sudo tee /etc/systemd/system/citus.service >/dev/null
 [Unit]
 Description = pg_auto_failover monitor
@@ -23,10 +17,6 @@ ExecReload = /usr/local/bin/pg_autoctl reload
 
 [Install]
 WantedBy = multi-user.target
-EOF
-
-cat <<EOF | sudo tee -a /etc/postgresql/14/main/pg_hba.conf >/dev/null
-host  all all 10.110.33.0/22  trust
 EOF
 
 sudo systemctl start citus.service

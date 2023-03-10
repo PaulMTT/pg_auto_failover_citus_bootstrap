@@ -52,4 +52,10 @@ sudo make -s clean -C pg_auto_failover/ && sudo make -s -C pg_auto_failover/ ins
 
 sudo cp /usr/lib/postgresql/${PGVERSION}/bin/pg_autoctl /usr/local/bin
 
+sudo rm -rf /data
+sudo mkdir /data
+sudo chown -R postgres:postgres /var/run/postgresql
+sudo chown -R postgres:postgres /data
+sudo chmod -R 1777 /tmp
+
 sudo -u postgres sh -c 'cd /data && pg_conftool set listen_addresses "*"'
