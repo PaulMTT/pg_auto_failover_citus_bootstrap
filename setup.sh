@@ -54,8 +54,11 @@ sudo cp /usr/lib/postgresql/${PGVERSION}/bin/pg_autoctl /usr/local/bin
 
 sudo rm -rf /data
 sudo mkdir /data
-sudo chown -R postgres:postgres /var/run/postgresql
 sudo chown -R postgres:postgres /data
+sudo rm -rf /backup
+sudo mkdir /backup
+sudo chown -R postgres:postgres /backup
+sudo chown -R postgres:postgres /var/run/postgresql
 sudo chmod -R 1777 /tmp
 
 sudo -u postgres sh -c 'cd /data && pg_conftool set listen_addresses "*"'
